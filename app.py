@@ -1,5 +1,5 @@
 # The SeaPark App
-# Time-stamp: <2022-05-16 13:31:51 zshuang>
+# Time-stamp: <2022-05-16 17:20:00 zshuang>
 
 import streamlit as st
 from streamlit_folium import st_folium
@@ -218,7 +218,7 @@ with col1:
     current_map = prepare_map()
     UI_MAP = st_folium(current_map, width=MAP_WIDTH, height=MAP_HEIGHT)
     # Go button must come after UI_MAP creation, to verify if it should be enabled
-    UI_GO = add_go_button(override=False) 
+    UI_GO = add_go_button(override=True) 
 
 if SS.stage != 'init':
     with col2:
