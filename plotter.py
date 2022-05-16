@@ -1,5 +1,5 @@
 # Plot related functions
-# Time-stamp: <2022-05-16 13:27:11 zshuang>
+# Time-stamp: <2022-05-16 15:29:42 zshuang>
 import seaborn as sns
 from matplotlib import pyplot as plt
 from io import BytesIO
@@ -7,7 +7,12 @@ from mapper import STATION_PALETTE
 import pandas as pd
 
 def compute_width(height, col_width, nstations, page=1, perpage=10):
-    """ compute the width of a figure """
+    """Compute the width of a figure. 
+
+    Streamlit sizes a figure by width.  Our figure has a fixed height
+    and variable width (corresponding to # of pay stations)
+
+    """
     div,mod = divmod(nstations, perpage) # e.g., nstations = 23, perpage = 10, divmod = 2,3
 
     if div >= page:

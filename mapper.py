@@ -1,5 +1,5 @@
 # Map related functions
-# Time-stamp: <2022-05-16 13:37:51 zshuang>
+# Time-stamp: <2022-05-16 15:26:08 zshuang>
 import streamlit as st
 import folium
 from folium.plugins import MarkerCluster, BeautifyIcon
@@ -92,12 +92,9 @@ def get_map_info(map_data):
     return last_click, map_bounds
 
 def update_map_info(map_data, stations):
-    """Check if last_click and map_bounds have changed since refresh. Save
-    changes to session dict if any, and propose a new map to draw for
-    next refresh
-
-    stations, if not None, is a df of available parking stations. So
-    we add them to the map
+    """Generate new map using map_data (as returned by st_folium,
+    including last click, and map bounds), and add pay stations
+    returned by predict(), if any.
 
     """
 

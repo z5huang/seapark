@@ -9,9 +9,9 @@ from functools import partial
 # space needle location
 SPACE_NEEDLE = (47.6205, -122.3493)
 
+
 ################################################################
 # Data processing
-
 station_astype = {
     'occupancydatetime': 'datetime64',
     'paidoccupancy': int,
@@ -137,9 +137,9 @@ def find_nearby_stations(location=SPACE_NEEDLE, within=0.3, coord_fn='data/Pay_S
     df['dist'] = dist
     return df.iloc[dist <= within].sort_values('dist')
 
+
 ################################################################
 # Learning
-
 from sklearn.preprocessing import FunctionTransformer
 def trig(func, period, as_transformer=False):
     """ currying a trignometric function with custom period
@@ -245,6 +245,7 @@ class TrigTransformer(BaseEstimator, TransformerMixin):
             return pd.concat([X,trig_data], axis=1)
         return trig_data
 
+
 ################################################################
 # For older notebooks. Consider remove in future
 read_station_data = read_parking_data
