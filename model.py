@@ -1,8 +1,5 @@
 # Module for calling pickled models to predict parking
-# Time-stamp: <2022-05-16 07:02:37 zshuang>
-
-from sklearnex import patch_sklearn
-patch_sklearn()
+# Time-stamp: <2022-05-16 16:35:45 zshuang>
 
 from datetime import datetime
 import os
@@ -13,21 +10,12 @@ import seattle_parking as sp
 #from seattle_parking import TimeSplitter
 
 import joblib
-import dill
 
 def get_module_path():
     try:
         return os.path.dirname(__file__)
     except:
         return '.'
-
-def load_dill(p):
-    with open(p, 'rb') as f:
-        m = dill.load(f)
-    return m
-def dump_dill(obj,p):
-    with open(p, 'wb') as f:
-        dill.dump(obj,p)
 
 def load_models_near(location = sp.SPACE_NEEDLE, within = 0.3, station_coord_fn='data/Pay_Stations.csv', model_dir = 'models/',station_spacetime_fn='data/pay_station_time_limit_space_count.csv'):
     """ load models for stations within some distance of a target location 
