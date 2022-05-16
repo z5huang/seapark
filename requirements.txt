@@ -1,0 +1,9 @@
+streamlit
+folium
+streamlit_folium
+pandas
+joblib
+seaborn
+matplotlib
+numpy
+
