@@ -6,4 +6,4 @@ joblib
 seaborn
 matplotlib
 numpy
-
+scikit-learn-intelex
