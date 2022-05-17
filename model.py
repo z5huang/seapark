@@ -1,5 +1,5 @@
 # Module for calling pickled models to predict parking
-# Time-stamp: <2022-05-16 16:35:45 zshuang>
+# Time-stamp: <2022-05-17 11:56:02 zshuang>
 
 from datetime import datetime
 import os
@@ -17,7 +17,7 @@ def get_module_path():
     except:
         return '.'
 
-def load_models_near(location = sp.SPACE_NEEDLE, within = 0.3, station_coord_fn='data/Pay_Stations.csv', model_dir = 'models/',station_spacetime_fn='data/pay_station_time_limit_space_count.csv'):
+def load_models_near(location = sp.SPACE_NEEDLE, within = 0.3, station_coord_fn='data/pay_station_coord.csv', model_dir = 'models/',station_spacetime_fn='data/pay_station_time_limit_space_count.csv'):
     """ load models for stations within some distance of a target location 
 
     returns (None, None) if no stations found, or no model available

@@ -92,7 +92,22 @@ def resample_parking_data(df, freq='5min', method='min'):
     return res
 
 
-def read_station_coord(fn='data/Pay_Stations.csv'):
+def uniquefy_station_coord(fin='data/Pay_Stations.csv', fout='data/pay_station_coord.csv'):
+    """Read in fin, keep only one record per elmntkey, and extract only
+    coordinate info, write to fout
+
+    There are 38 out of the total 1510 records with duplicate
+    `elmntkey' field, presumably because the same 'elmntkey' (a
+    parking lot?) has two to three pay stations?? Run this to only
+    keep one of them in fout
+
+    """
+
+    df = pd.read_csv(fin)
+    df.groupby('ELMNTKEY').apply(lambda x: x.iloc[0])[['ELMNTKEY','SHAPE_LAT','SHAPE_LNG']].to_csv(fout, index=False)
+    return None
+
+def read_station_coord(fn='data/pay_station_coord.csv'):
     """ Return a dataframe with columns ['sourceelementkey', 'lat',
     'long'] specifying coordinate of each station """
     
@@ -128,7 +143,7 @@ def latlng_dist(locations, ref=None, r=3963):
 
     return angles * r
 
-def find_nearby_stations(location=SPACE_NEEDLE, within=0.3, coord_fn='data/Pay_Stations.csv', spacetime_fn='data/pay_station_time_limit_space_count.csv'):
+def find_nearby_stations(location=SPACE_NEEDLE, within=0.3, coord_fn='data/pay_station_coord.csv', spacetime_fn='data/pay_station_time_limit_space_count.csv', no_duplicate=True):
     """ find parking stations within <within> miles of <location> """
     df = read_station_coord(coord_fn)
     df_st = read_station_space_time(spacetime_fn)
