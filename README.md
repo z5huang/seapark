@@ -11,7 +11,8 @@ The models, as pickled in `models/`, are trained and tested on (5+1) years of hi
 - `plotter.py`: code related to presenting prediction results as a heatmap
 - `model.py`: code related to calling pre-trained models
 - `seattle_parking.py`: code related to reading data and interfacing with the machine learning models
+- `single_marker.py`: a single marker version of folium's [`ClickForMarker`](https://python-visualization.github.io/folium/modules.html#folium.features.ClickForMarker) feature, for users to select destination by pin drop
 -  `data/`: pay station and weather data
 - `models/`: pre-trained models named after `sourceelementkey`
 - `requirements.txt`: dependencies for online deployment
-- `Procfile` and `setup.sh`: for Heroku deployment. (I've since moved to [streamlit share](https://share.streamlit.io) instead due to Heroku's space restriction)
+- `Procfile` and `setup.sh`: for Heroku deployment. (I've since moved to [streamlit share](https://share.streamlit.io) due to Heroku's more restrictive size limit)
