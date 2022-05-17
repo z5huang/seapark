@@ -1,5 +1,5 @@
 # Plot related functions
-# Time-stamp: <2022-05-17 09:14:47 zshuang>
+# Time-stamp: <2022-05-17 18:35:29 zshuang>
 import seaborn as sns
 from matplotlib import pyplot as plt
 from io import BytesIO
@@ -42,7 +42,8 @@ def plot_predictions(predictions, figsize, page=1, perpage=10, label_palette=STA
     
     # https://seaborn.pydata.org/generated/seaborn.diverging_palette.html
     # colomap for probabilities
-    cmap_proba = sns.diverging_palette(275,150,s=80,l=55,n=9,as_cmap=True)
+    #cmap_proba = sns.diverging_palette(275,150,s=80,l=55,n=9,as_cmap=True)
+    cmap_proba = sns.diverging_palette(10,150,s=80,l=55,as_cmap=True)
     
     # https://seaborn.pydata.org/tutorial/color_palettes.html
     # color_palette for labels
@@ -62,8 +63,9 @@ def plot_predictions(predictions, figsize, page=1, perpage=10, label_palette=STA
 
     fig = plt.figure(figsize=figsize, dpi=100, constrained_layout=True)
     ax = sns.heatmap(predictions, cmap=cmap_proba,
-                    linewidth=0.004, linecolor='white',
-                    cbar=None, vmin=0, vmax=1,
+                     linewidth=0.004, linecolor='white',
+                     cbar=None, 
+                     vmin=0, vmax=1,
                     yticklabels=6, # every 30 min
                     ) 
     ax.tick_params(left=True) # plot tick marks on the time axis
@@ -78,7 +80,7 @@ def plot_predictions(predictions, figsize, page=1, perpage=10, label_palette=STA
 
     if hline:
         y = time_to_y(hline)
-        ax.hlines(y, *ax.get_xlim(), color='red', alpha=0.5)
+        ax.hlines(y, *ax.get_xlim(), color='blue', linewidth=2, alpha=1)
     #plt.tight_layout(pad=2)
     #plt.tight_layout()
 

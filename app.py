@@ -1,5 +1,5 @@
 # The SeaPark App
-# Time-stamp: <2022-05-17 07:23:31 zshuang>
+# Time-stamp: <2022-05-17 18:56:42 zshuang>
 
 import streamlit as st
 from streamlit_folium import st_folium
@@ -25,12 +25,15 @@ SS = st.session_state
 SPACE_NEEDLE = (47.6205, -122.3493)
 
 # Map size
-MAP_WIDTH=1000
+#MAP_WIDTH=1000
+#MAP_HEIGHT=800
+MAP_WIDTH=800
 MAP_HEIGHT=800
 
 # Pagination of prediction results
-STATIONS_PERPAGE=10
+STATIONS_PERPAGE=8
 PLOT_HEIGHT=9.5 # Not an exact science but should be set proportional to MAP_HEIGHT
+#PLOT_HEIGHT=7.5
 PLOT_COL_WIDTH=0.1 # Approximate width of each col in unit of PLOT_HEIGHT
 
 # Helper for keeping tabs on the UI cycle, a numbered print if you will
@@ -211,14 +214,21 @@ with st.sidebar:
 
 ################
 # main panel
-col1,col2 = st.columns([1,1])
+col1,col2 = st.columns([0.618,1])
 
 with col1:
     st.subheader('Where are you going?')
     current_map = prepare_map()
     UI_MAP = st_folium(current_map, width=MAP_WIDTH, height=MAP_HEIGHT)
-    # Go button must come after UI_MAP creation, to verify if it should be enabled
-    UI_GO = add_go_button(override=True) 
+with st.sidebar:
+    cs1,cs2,cs3 = st.columns([2,0.5,0.5])
+    with cs1:
+        # Go button must come after UI_MAP creation, to verify if it should be enabled
+        UI_GO = add_go_button(override=True)
+    #with cs2:
+    #    st.button('a')
+    #with cs3:
+    #    st.button('4')
 
 if SS.stage != 'init':
     with col2:
@@ -227,7 +237,13 @@ if SS.stage != 'init':
             st.subheader(f'No parking available')
         else:
             nstations = len(predictions.columns)
-            st.subheader(f'Found {nstations} results')
+            #st.subheader(f'Found {nstations} results')
+            st.markdown(f"""
+<h3>Found {nstations} results &nbsp;
+<span style="font-size:60%; color: white; background-color:#029e37"> Available </span>
+<span style="font-size:60%; color: white; background-color:lightgray"> Maybe </span>
+<span style="font-size:60%; color: white; background-color:#ef5b66"> Not available </span>
+</h3>""", unsafe_allow_html=True)
 
             page = SS.get('page',1)
             width = compute_width(PLOT_HEIGHT, PLOT_COL_WIDTH,
@@ -241,9 +257,11 @@ if SS.stage != 'init':
                      )
             pmax = ceil(nstations / STATIONS_PERPAGE)
             if page < pmax:
-                st.button(label='>>', on_click = next_page)
+                with cs3:
+                    st.button(label='>>', on_click = next_page)
             if page > 1:
-                st.button(label='<<', on_click = prev_page)
+                with cs2:
+                    st.button(label='<<', on_click = prev_page)
 
 
 
