@@ -9,8 +9,8 @@ The models, as pickled in `models/`, are trained and tested on (5+1) years of hi
 - `app.py`: main UI driver
 - `mapper.py`: code related to managing markers on the map
 - `plotter.py`: code related to presenting prediction results as a heatmap
-- `model.py`: code related to calling pre-trained models
-- `seattle_parking.py`: code related to reading data and interfacing with the machine learning models
+- `model.py`: code related to calling pre-trained models from the app
+- `seattle_parking.py`: code related to reading data and interfacing with pre-trained models
 - `single_marker.py`: a single marker version of folium's [`ClickForMarker`](https://python-visualization.github.io/folium/modules.html#folium.features.ClickForMarker) feature. This is used to get user input of parking destination through a pin drop.
 -  `data/`: pay station and weather data
 - `models/`: pre-trained models named after `sourceelementkey`
