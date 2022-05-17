@@ -1,5 +1,5 @@
 # Plot related functions
-# Time-stamp: <2022-05-16 15:29:42 zshuang>
+# Time-stamp: <2022-05-17 09:14:47 zshuang>
 import seaborn as sns
 from matplotlib import pyplot as plt
 from io import BytesIO
@@ -73,6 +73,7 @@ def plot_predictions(predictions, figsize, page=1, perpage=10, label_palette=STA
     # sample code for setting x label background color
     for i,tl in enumerate(ax.get_xticklabels()):
         tl.set_backgroundcolor(cmap_labels[i+(page-1)*perpage])
+        tl.set_color('white')
         tl.set_fontsize(16)
 
     if hline:

@@ -1,5 +1,5 @@
 # The SeaPark App
-# Time-stamp: <2022-05-16 17:20:00 zshuang>
+# Time-stamp: <2022-05-17 07:23:31 zshuang>
 
 import streamlit as st
 from streamlit_folium import st_folium
@@ -25,7 +25,7 @@ SS = st.session_state
 SPACE_NEEDLE = (47.6205, -122.3493)
 
 # Map size
-MAP_WIDTH=1500
+MAP_WIDTH=1000
 MAP_HEIGHT=800
 
 # Pagination of prediction results
