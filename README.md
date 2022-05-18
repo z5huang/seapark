@@ -3,7 +3,7 @@
 The city of Seattle publishes on-street paid parking occupancy data at https://data.seattle.gov. These are derived from transaction records whenever someone makes a payment for their street parking. The difference between the total number of spots available at a parking lot, and those that have been paid for, can be used to estimate how many spots are open at that time. Note that this is not exact science. Illegal parking, for example, could lead to over-estimation of available spots. Conversely, early departure before ticket expiary will cause an open spot to remain 'occupied' in the system, resulting in under-estimation. These caveats should be kept in mind when interpreting predictions. 
 
 This repository contains frontend code built on the `streamlit` framework. A [demo](https://tinyurl.com/seaparker) of about 200 parking lots near the Space Needle is live on streamlit share. Screenshot:
-![image](https://user-images.githubusercontent.com/57611601/168931723-8dc51d03-d5b7-4f0a-8541-14aaa4cc454d.png)
+![image](https://user-images.githubusercontent.com/57611601/169100686-4449fd5a-a7a0-4768-9701-4b61896f3219.png)
 The models, as pickled in `models/`, are trained and tested on (5+1) years of historical parking data together with daily weather information, and should improve with more data. The repo is organized as follows:
 
 - `app.py`: main UI driver
