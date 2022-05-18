@@ -15,4 +15,4 @@ The models, as pickled in `models/`, are trained and tested on (5+1) years of hi
 -  `data/`: pay station and weather data
 - `models/`: pre-trained models named after `sourceelementkey`
 - `requirements.txt`: dependencies for online deployment
-- `Procfile` and `setup.sh`: for Heroku deployment. (I've since moved to [streamlit share](https://share.streamlit.io) due to Heroku's more restrictive size limit)
+
