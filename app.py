@@ -1,5 +1,5 @@
 # The SeaPark App
-# Time-stamp: <2022-05-18 16:28:40 zshuang>
+# Time-stamp: <2022-05-18 17:28:14 zshuang>
 
 import streamlit as st
 from streamlit_folium import st_folium
@@ -190,11 +190,11 @@ def next_page():
 ################################################################
 # UI
 ################
-#st.title('Welcome to SeaPark! (bit.ly/seaparker)')
-st.markdown(f"""
-<h1>Welcome to SeaPark!&nbsp;&nbsp;
-<span style="font-size:80%; color:blue;"><u>https://bit.ly/seaparker</u></span>
-</h1>""", unsafe_allow_html=True)
+st.title('Welcome to SeaPark! (bit.ly/seaparker)')
+#st.markdown(f"""
+#<h1>Welcome to SeaPark!&nbsp;&nbsp;
+#<span style="font-size:80%; color:blue;"><u>https://bit.ly/seaparker</u></span>
+#</h1>""", unsafe_allow_html=True)
 
 # Center-align:
 #st.markdown("<h1 style='text-align: center; '>Welcome to SeaPark!</h1>", unsafe_allow_html=True)
