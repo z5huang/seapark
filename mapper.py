@@ -1,5 +1,5 @@
 # Map related functions
-# Time-stamp: <2022-05-16 15:26:08 zshuang>
+# Time-stamp: <2022-05-17 21:08:48 zshuang>
 import streamlit as st
 import folium
 from folium.plugins import MarkerCluster, BeautifyIcon
@@ -9,8 +9,6 @@ import seaborn as sns
 
 SPACE_NEEDLE = (47.6205, -122.3493)
 STATION_PALETTE='colorblind'
-MAP_WIDTH=1500
-MAP_HEIGHT=800
 
 ICON_SIZE=40
 
