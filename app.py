@@ -1,5 +1,5 @@
 # The SeaPark App
-# Time-stamp: <2022-05-18 19:05:36 zshuang>
+# Time-stamp: <2022-05-19 14:31:33 zshuang>
 
 import streamlit as st
 from streamlit_folium import st_folium
@@ -190,11 +190,12 @@ def next_page():
 ################################################################
 # UI
 ################
-st.title('Welcome to SeaPark!')
+#st.title('Welcome to SeaPark!')
 #st.markdown(f"""
 #<h1>Welcome to SeaPark!&nbsp;&nbsp;
-#<span style="font-size:80%; color:blue;"><u>https://bit.ly/seaparker</u></span>
+#<span style="font-size:20%; color:blue;"><u>github.com/z5huang/seapark</u></span>
 #</h1>""", unsafe_allow_html=True)
+st.markdown(f"""<h1><a href="https://github.com/z5huang/seapark">Welcome to SeaPark!</h1>""", unsafe_allow_html=True)
 
 # Center-align:
 #st.markdown("<h1 style='text-align: center; '>Welcome to SeaPark!</h1>", unsafe_allow_html=True)
@@ -233,7 +234,7 @@ with st.sidebar:
     #    st.button('a')
     #with cs3:
     #    st.button('4')
-
+#    st.markdown('[github](https://github.com/z5huang/seapark)')
 if SS.stage != 'init':
     with col2:
         predictions = SS.get('predictions', None)
